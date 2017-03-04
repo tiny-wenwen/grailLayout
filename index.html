@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>css布局两边固定中间自适应的五种方法</title>
+    <link rel="stylesheet" href="">
+    <style >
+        *{margin: 0; padding: 0;}
+        body,html{height: 100%; width: 100%; margin: 0; padding: 0;}
+        .box1 .left,.box1 .right{width: 200px; height: 100px;  background-color: #899;}
+        .box1 .left{float: left;}
+        .box1 .right{float: right;}
+        .box1 .center{height: 100px;  margin: 0 220px; background-color: #ddd;}
+
+        .box2{position: relative;}
+        .box2 .left,.box2 .right{width: 200px; height: 100px; position: absolute; background-color: #789}
+        .box2 .left{left: 0px;}
+        .box2 .right{right: 0px;}
+        .box2 .center{margin: 0 220px; height: 100px; background-color: #255}
+
+        .box3{display: flex;}
+        .box3 .left,.box3 .right{width: 200px; height: 100px;background-color: #789}
+        .box3 .center{flex: 1; height: 100px; background-color: #255}
+
+        .box4 .wrap{ width: 100%; height: 100px; float: left;}
+        .box4 .center{margin:0 210px; height: 100px; background-color: #ffe6b8;}
+        .box4 .left,.box4 .right{ float: left;width: 200px;height: 100px;background-color: darkorange }
+        .box4 .left{margin-left: -100%; }
+        .box4 .right{margin-left: -200px;}
+
+        .box5 .left,.box5 .right{float: left; width: 200px; height: 100px;background-color: #789}
+        .box5 .center{float: left; width: calc(100% - 420px); margin: 0 10px; height: 100px; background-color: #255}
+    </style>
+</head>
+<body>    
+    <p>方法一:左右侧采用浮动，中间试用margin方法</p>
+    <div class="box1">
+        <div class="left">小左</div>
+        <div class="right">小右</div>
+        <div class="center">中间(要把小左小右放前边，中间放后面)</div>
+    </div>
+    <p>=============================================================</p>
+    <p>方法二：左右采取绝对定位position，中间采用margin</p>
+    <div class="box2">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="center"></div>
+    </div>
+    <p>=============================================================</p>
+    <p>方法三：flex</p>
+    <div class="box3">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+    <p>=============================================================</p>
+    <p>方法四：margin负值</p>
+    <div class="box4">
+        <div class="wrap">        
+            <div class="center"></div>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <p>=============================================================</p>
+    <p>方法五：calc</p>
+    <div class="box5">    
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
